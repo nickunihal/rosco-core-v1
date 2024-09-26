@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   # require_dependency 'services/node_client_service'
 
   def user_profile_data
-    data = {"user":{"id":1,"name":"hashif","balance":0,"points":420},"kuris":[{"id":0,"contribution":1e+21,"prize":0,"truthTable":{"periods":6,"participants":[{"name":"julu","statuses":["RECEIVED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"hashif","statuses":["COMPLETED","RECEIVED","RECEIVED","PENDING","PENDING","PENDING"]},{"name":"anjal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"nihal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"john","statuses":["PENDING","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"amal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]}]}}]}.with_indifferent_access
+    data = {"user":{"id":2,"name":"anjal","balance":0,"points":420},"kuris":[{"id":0,"contribution":1000,"prize":0,"truthTable":{"periods":6,"participants":[{"name":"julu","statuses":["RECEIVED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"hashif","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"anjal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"nihal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"john","statuses":["RECEIVED","PENDING","PENDING","PENDING","PENDING","PENDING"]},{"name":"amal","statuses":["COMPLETED","PENDING","PENDING","PENDING","PENDING","PENDING"]}]}}]}.with_indifferent_access
     render json: data
   end
 
