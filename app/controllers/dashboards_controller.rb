@@ -9,14 +9,17 @@ class DashboardsController < ApplicationController
     if user_address
       puts "Initializing Client"
       client = NodeClientService.new.new_client
-
-      kuri_abi = contract_abi #JSON.load(File.open('contract_abi.json'))
+# https://api.jsonbin.io/v3/qs/66f58e26e41b4d34e4384c3b
+      kuri_abi = HTTParty.get('https://api.jsonbin.io/v3/qs/66f58e26e41b4d34e4384c3b')
+      kuri_abi = JSON.parse(kuri_abi.body)["record"] #JSON.load(File.open('contract_abi.json'))
       kuri_name = "Rosca"
       # kuri_address = kuri_list.first
 
       puts "Initializing INR Token"
       inr_token_address = "0x42F253D3E3Ee7Dd8676DE6075c15A252879FA9cF"
-      inr_token_abi = inr_abi #JSON.load(File.open('inr_token_abi.json'))
+# https://api.jsonbin.io/v3/qs/66f58f5ce41b4d34e4384ce8
+      inr_token_abi = HTTParty.get('https://api.jsonbin.io/v3/qs/66f58f5ce41b4d34e4384ce8') #JSON.load(File.open('inr_token_abi.json'))
+      inr_token_abi = JSON.parse(inr_token_abi.body)["record"]
       inr_token_name = "Rosca"
 
       inr_token = ContractService.new(inr_token_name, inr_token_address, inr_token_abi)
