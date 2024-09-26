@@ -10,13 +10,13 @@ class DashboardsController < ApplicationController
       puts "Initializing Client"
       client = NodeClientService.new.new_client
 
-      kuri_abi = JSON.load(File.open('../contract_abi.json'))
+      kuri_abi = JSON.load(File.open('contract_abi.json'))
       kuri_name = "Rosca"
       # kuri_address = kuri_list.first
 
       puts "Initializing INR Token"
       inr_token_address = "0x42F253D3E3Ee7Dd8676DE6075c15A252879FA9cF"
-      inr_token_abi = JSON.load(File.open('../inr_token_abi.json'))
+      inr_token_abi = JSON.load(File.open('inr_token_abi.json'))
       inr_token_name = "Rosca"
 
       inr_token = ContractService.new(inr_token_name, inr_token_address, inr_token_abi)
