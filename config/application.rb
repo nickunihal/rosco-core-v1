@@ -18,5 +18,15 @@ module RoscaCore
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'  # Change '*' to a specific domain if needed
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          expose: ['Authorization'],  # Expose custom headers if necessary
+          max_age: 600
+      end
+    end
   end
 end
